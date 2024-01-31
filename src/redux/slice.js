@@ -1,24 +1,30 @@
-// import { getCars } from "./operations";
+import { createSlice } from "@reduxjs/toolkit";
+import { getAllCars } from "./operations";
 
-// const initialState = {
-//   cars: null,
-//   isLoading: false,
-// };
+const initialState = {
+  cars: null,
+  isLoading: false,
+  error: null,
+};
 
-// const carsSlice = {
-//   name: "cars",
-//   initialState,
-//   reducers: {},
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(getCars.pending, (state) => {
-//         state.isLoading = true;
-//       })
-//       .addCase(getCars.fulfilled, (state, action) => {
-//         state.cars = action.payload.cars;
-//         state.isLoading = false;
-//       });
-//   },
-// };
+const carsSlice = createSlice({
+  name: "cars",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getAllCars.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAllCars.fulfilled, (state, action) => {
+        state.cars = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getAllCars.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      });
+  },
+});
 
-// export default carsSlice;
+export const carsReducer = carsSlice.reducer;
