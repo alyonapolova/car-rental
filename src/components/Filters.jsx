@@ -11,6 +11,8 @@ export const Filters = () => {
 
   useEffect(() => {
     dispatch(getMakes());
+  }, [dispatch, makes]);
+  useEffect(() => {
     if (cars) {
       const prices = cars.map((car) =>
         parseFloat(car.rentalPrice.replace("$", ""))

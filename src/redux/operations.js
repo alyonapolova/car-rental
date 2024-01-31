@@ -3,11 +3,13 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://65b95d65b71048505a8abdeb.mockapi.io/api/v1/";
 
+const params = { page: 1, limit: 10 };
+
 export const getAllCars = createAsyncThunk(
   "cars/getAll",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/advert");
+      const { data } = await axios.get("/advert", { params: params });
 
       return data;
     } catch (error) {
