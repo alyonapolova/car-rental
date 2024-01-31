@@ -1,7 +1,17 @@
+import { useDispatch } from "react-redux";
+import { addToFavorites } from "../redux/favoritesSlice";
+
 export const CarCard = ({ car }) => {
+  const dispatch = useDispatch();
+  const handleAddToFavorites = () => {
+    dispatch(addToFavorites(car));
+  };
   return (
     <div>
       <img src={car.img} width="150" alt={car.model} />
+      <button type="button" onClick={handleAddToFavorites}>
+        add to fav
+      </button>
       <h2>{car.make}</h2>
       <h2>{car.rentalPrice}</h2>
       <p>{car.address}</p>
