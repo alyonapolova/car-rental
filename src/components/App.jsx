@@ -1,8 +1,8 @@
-import { Route, Routes } from "react-router-dom";
-import CatalogPage from "./pages/CatalogPage";
-import FavoritesPage from "./pages/FavoritesPage";
-import HomePage from "./pages/HomePage";
-import Layout from "./pages/Layout";
+import CatalogPage from 'pages/CatalogPage';
+import FavoritesPage from 'pages/FavoritesPage';
+import HomePage from 'pages/HomePage';
+import Layout from 'pages/Layout';
+import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
   return (

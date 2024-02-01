@@ -1,13 +1,21 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { favoritesSelector } from "../redux/selectors";
+import { useSelector } from 'react-redux';
+import { favoritesSelector } from '../redux/selectors';
+import { CarCard } from './CarCard';
 
 export const Favorites = () => {
   const favorites = useSelector(favoritesSelector);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log("favorites", favorites);
-  });
-  return;
+  console.log(favorites);
+  return (
+    <div>
+      <h1>Favorites</h1>
+      <ul>
+        {favorites &&
+          favorites.map(car => (
+            <li key={car.id}>
+              <CarCard car={car} />
+            </li>
+          ))}
+      </ul>
+    </div>
+  );
 };

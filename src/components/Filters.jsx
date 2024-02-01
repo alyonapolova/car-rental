@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getMakes } from "../redux/operations";
-import { carsSelector, makesSelector } from "../redux/selectors";
+import { calculatePrices } from '../helpers/calculatePrices';
+import { useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMakes } from '../redux/operations';
+import { carsSelector, makesSelector } from '../redux/selectors';
 
 export const Filters = () => {
   const dispatch = useDispatch();
@@ -9,21 +10,20 @@ export const Filters = () => {
   const cars = useSelector(carsSelector);
   const [rentalPrice, setRentalPrice] = useState([]);
 
-  useEffect(() => {
-    dispatch(getMakes());
+  useMemo(() => {
+    if (!makes) {
+      dispatch(getMakes());
+    }
   }, [dispatch, makes]);
+
   useEffect(() => {
     if (cars) {
-      const prices = cars.map((car) =>
-        parseFloat(car.rentalPrice.replace("$", ""))
-      );
-      const sortedPrice = prices.sort((a, b) => a - b);
+      const sortedPrice = calculatePrices(cars);
       const sortedRentalPrice = [...new Set(sortedPrice)];
-
       setRentalPrice(sortedRentalPrice);
-      console.log("rentalPrice", sortedRentalPrice);
+      console.log('rentalPrice', sortedRentalPrice);
     }
-  }, [dispatch, cars]);
+  }, [cars]);
 
   return (
     <div>

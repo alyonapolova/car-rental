@@ -1,19 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getAllCars } from "./operations";
+import { createSlice } from '@reduxjs/toolkit';
+import { getAllCars } from './operations';
 
 const initialState = {
   cars: null,
+  currentPage: null,
   isLoading: false,
   error: null,
 };
 
 const carsSlice = createSlice({
-  name: "cars",
+  name: 'cars',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
+  reducers: {
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+  },
+  extraReducers: builder => {
     builder
-      .addCase(getAllCars.pending, (state) => {
+      .addCase(getAllCars.pending, state => {
         state.isLoading = true;
       })
       .addCase(getAllCars.fulfilled, (state, action) => {
@@ -27,4 +32,5 @@ const carsSlice = createSlice({
   },
 });
 
+export const { setCurrentPage } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

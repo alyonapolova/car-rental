@@ -1,14 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getMakes } from "./operations";
+import { createSlice } from '@reduxjs/toolkit';
+import { getMakes } from './operations';
+
+const initialState = {
+  makes: null,
+  error: null,
+};
 
 const filtersSlice = createSlice({
-  name: "filters",
-  initialState: {
-    makes: null,
-    error: null,
-  },
+  name: 'filters',
+  initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(getMakes.fulfilled, (state, action) => {
         state.makes = action.payload;
