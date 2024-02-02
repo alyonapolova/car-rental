@@ -5,7 +5,7 @@ import { addToFavorites, removeFromFavorites } from '../redux/slice';
 import {
   BtnHeart,
   BtnLearnMore,
-  CardDiv,
+  CardLi,
   ImgDiv,
   ImgStyle,
   InfoDiv,
@@ -38,7 +38,7 @@ export const CarCard = ({ car }) => {
 
   console.log(car);
   return (
-    <CardDiv>
+    <CardLi>
       <ImgDiv>
         <ImgStyle src={car.img} alt={car.model} />
         <BtnHeart type="button" onClick={handleBtnFavorites} isFav={isFav}>
@@ -63,6 +63,6 @@ export const CarCard = ({ car }) => {
         <TextStyle>{car.accessories[0]}</TextStyle>
       </InfoDiv>
       <BtnLearnMore>Learn more</BtnLearnMore>
-    </CardDiv>
+    </CardLi>
   );
 };

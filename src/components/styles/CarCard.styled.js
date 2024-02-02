@@ -1,6 +1,8 @@
 import { styled } from 'styled-components';
 
-export const CardDiv = styled.div`
+export const CardLi = styled.li`
+  // width: calc(25% - 90px);
+
   border: 2px solid #ddd;
   border-radius: 8px;
   padding: 10px;
@@ -13,12 +15,12 @@ export const ModelDiv = styled.div`
   justify-content: space-between;
 `;
 
-export const StyledH2 = styled.h2`
+export const StyledH2 = styled.p`
   font-size: 16px;
   margin-right: 2px;
 `;
 
-export const StyledPrice = styled.h2`
+export const StyledPrice = styled.p`
   font-size: 16px;
 `;
 
@@ -34,7 +36,7 @@ export const ImgStyle = styled.img`
   width:274px;
   height:268px;
   object-fit: cover; 
-  
+
   }
 `;
 

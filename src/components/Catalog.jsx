@@ -1,21 +1,16 @@
 import { CarCard } from './CarCard';
 import { Filters } from './Filters';
-import { CatalogUl } from './styles/Catalog.styled';
+import { CatalogDiv, CatalogUl } from './styles/Catalog.styled';
 
 export const Catalog = ({ cars }) => {
   console.log(cars);
   return (
-    <div>
+    <CatalogDiv>
       <Filters />
       <CatalogUl>
-        {cars &&
-          cars.map(car => (
-            <li key={car.id}>
-              <CarCard car={car} />
-            </li>
-          ))}
+        {cars && cars.map(car => <CarCard key={car.id} car={car} />)}
       </CatalogUl>
       <button type="button">Load More</button>
-    </div>
+    </CatalogDiv>
   );
 };
