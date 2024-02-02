@@ -1,5 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { addToFavorites } from '../redux/slice';
+import {
+  BtnHeart,
+  BtnLearnMore,
+  CardDiv,
+  ImgDiv,
+  ImgStyle,
+  InfoDiv,
+  ModelDiv,
+  StyledH2,
+  StyledPrice,
+  TextStyle,
+} from './styles/CarCard.styled';
 
 export const CarCard = ({ car }) => {
   const dispatch = useDispatch();
@@ -9,19 +21,31 @@ export const CarCard = ({ car }) => {
 
   console.log(car);
   return (
-    <div>
-      <img src={car.img} width="150" alt={car.model} />
-      <button type="button" onClick={handleAddToFavorites}>
-        add to fav
-      </button>
-      <h2>{car.make}</h2>
-      <h2>{car.rentalPrice}</h2>
-      <p>{car.address}</p>
-      <p>{car.rentalCompany}</p>
-      <p>{car.type}</p>
-      <p>{car.model}</p>
-      <p>{car.mileage}</p>
-      <p>{car.accessories[0]}</p>
-    </div>
+    <CardDiv>
+      <ImgDiv>
+        <ImgStyle src={car.img} alt={car.model} />
+        <BtnHeart type="button" onClick={handleAddToFavorites}>
+          &#9829;
+        </BtnHeart>
+      </ImgDiv>
+
+      <ModelDiv>
+        <StyledH2>
+          {car.make} {car.model},{car.year}
+        </StyledH2>
+        <StyledPrice>{car.rentalPrice}</StyledPrice>
+      </ModelDiv>
+      <InfoDiv>
+        <TextStyle>{car.address.split(',')[1].trim()}</TextStyle>
+
+        <TextStyle>{car.rentalCompany}</TextStyle>
+
+        <TextStyle>{car.type}</TextStyle>
+
+        <TextStyle>{car.mileage}</TextStyle>
+        <TextStyle>{car.accessories[0]}</TextStyle>
+      </InfoDiv>
+      <BtnLearnMore>Learn more</BtnLearnMore>
+    </CardDiv>
   );
 };
