@@ -1,6 +1,6 @@
 import { CarCard } from './CarCard';
 import { Filters } from './Filters';
-import { CatalogDiv, CatalogUl } from './styles/Catalog.styled';
+import { CatalogDiv, CatalogUl, LoadMoreBtn } from './styles/Catalog.styled';
 
 export const Catalog = ({ cars }) => {
   console.log(cars);
@@ -10,7 +10,7 @@ export const Catalog = ({ cars }) => {
       <CatalogUl>
         {cars && cars.map(car => <CarCard key={car.id} car={car} />)}
       </CatalogUl>
-      <button type="button">Load More</button>
+      <LoadMoreBtn type="button">Load More</LoadMoreBtn>
     </CatalogDiv>
   );
 };

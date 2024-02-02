@@ -20,6 +20,11 @@ export const StyledH2 = styled.p`
   margin-right: 2px;
 `;
 
+export const StyledSpan = styled.span`
+  font-size: 16px;
+  margin-right: 2px;
+  color: #3470ff;
+`;
 export const StyledPrice = styled.p`
   font-size: 16px;
 `;

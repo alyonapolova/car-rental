@@ -12,6 +12,7 @@ import {
   ModelDiv,
   StyledH2,
   StyledPrice,
+  StyledSpan,
   TextStyle,
 } from './styles/CarCard.styled';
 
@@ -48,7 +49,8 @@ export const CarCard = ({ car }) => {
 
       <ModelDiv>
         <StyledH2>
-          {car.make} {car.model},{car.year}
+          {car.make} <StyledSpan>{car.model},</StyledSpan>
+          {car.year}
         </StyledH2>
         <StyledPrice>{car.rentalPrice}</StyledPrice>
       </ModelDiv>
