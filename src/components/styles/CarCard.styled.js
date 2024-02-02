@@ -40,12 +40,14 @@ export const ImgStyle = styled.img`
 
 export const BtnHeart = styled.button`
   font-size: 40px;
-  color: #3470ff;
+  color: ${props => (props.isFav ? 'red' : 'white')};
+  // color: #3470ff;
   position: absolute;
   top: 5px;
   right: 5px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 
   &:hover {
     color: red;

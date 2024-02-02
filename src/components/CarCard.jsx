@@ -1,5 +1,7 @@
-import { useDispatch } from 'react-redux';
-import { addToFavorites } from '../redux/slice';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { favSelector } from '../redux/selectors';
+import { addToFavorites, removeFromFavorites } from '../redux/slice';
 import {
   BtnHeart,
   BtnLearnMore,
@@ -14,9 +16,24 @@ import {
 } from './styles/CarCard.styled';
 
 export const CarCard = ({ car }) => {
+  const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
-  const handleAddToFavorites = () => {
-    dispatch(addToFavorites(car));
+  const favorites = useSelector(favSelector);
+
+  useEffect(() => {
+    const isCarInFavorites = favorites.some(
+      favoriteCar => favoriteCar.id === car.id
+    );
+    setIsFav(isCarInFavorites);
+  }, [favorites, car]);
+
+  const handleBtnFavorites = () => {
+    if (isFav) {
+      dispatch(removeFromFavorites(car));
+    } else {
+      dispatch(addToFavorites(car));
+    }
+    setIsFav(!isFav);
   };
 
   console.log(car);
@@ -24,7 +41,7 @@ export const CarCard = ({ car }) => {
     <CardDiv>
       <ImgDiv>
         <ImgStyle src={car.img} alt={car.model} />
-        <BtnHeart type="button" onClick={handleAddToFavorites}>
+        <BtnHeart type="button" onClick={handleBtnFavorites} isFav={isFav}>
           &#9829;
         </BtnHeart>
       </ImgDiv>

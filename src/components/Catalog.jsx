@@ -1,11 +1,12 @@
 import { CarCard } from './CarCard';
+import { Filters } from './Filters';
 import { CatalogUl } from './styles/Catalog.styled';
 
 export const Catalog = ({ cars }) => {
   console.log(cars);
   return (
     <div>
-      <h1>Catalog</h1>
+      <Filters />
       <CatalogUl>
         {cars &&
           cars.map(car => (
@@ -18,4 +19,3 @@ export const Catalog = ({ cars }) => {
     </div>
   );
 };
-export default Catalog;

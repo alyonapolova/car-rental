@@ -12,17 +12,21 @@ const carsSlice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-  addToFavorites: (state, action) => {
-    const carInList = state.favList.find(car => car.id === action.payload.id);
-    if (!carInList) {
-      state.favList.push(action.payload);
-    }
+    addToFavorites: (state, action) => {
+      const carInList = state.favList.find(car => car.id === action.payload.id);
+      if (!carInList) {
+        state.favList.push(action.payload);
+      }
+    },
+    removeFromFavorites: (state, action) => {
+      const indexToRemove = state.favList.findIndex(
+        item => item.id === action.payload.id
+      );
+      if (indexToRemove !== -1) {
+        state.favList.splice(indexToRemove, 1);
+      }
+    },
   },
-  removeFromFavorites: (state, action) => {
-    state.favList = state.list.filter(item => item.id !== action.payload.id);
-  },
-
-},
   extraReducers: builder => {
     builder
       .addCase(getAllCars.pending, state => {
