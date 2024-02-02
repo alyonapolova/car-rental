@@ -55,7 +55,7 @@ export const CarCard = ({ car }) => {
         <StyledPrice>{car.rentalPrice}</StyledPrice>
       </ModelDiv>
       <InfoDiv>
-        <TextStyle>{car.address.split(',')[1].trim()}</TextStyle>
+        <TextStyle>{car.address}</TextStyle>
 
         <TextStyle>{car.rentalCompany}</TextStyle>
 

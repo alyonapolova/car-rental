@@ -1,13 +1,15 @@
 import calculatePrices from 'helpers/calculatePrices';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMakes } from '../redux/operations';
 import { makesSelector } from '../redux/selectors';
 import { FilterDiv, FiltersDiv, Label, Select } from './styles/Filters.styled';
 
-export const Filters = () => {
+export const Filters = ({ handleMakeChange }) => {
   const dispatch = useDispatch();
   const makes = useSelector(makesSelector);
+
+  const selectedMake = useState('');
 
   useMemo(() => {
     if (!makes) {
@@ -16,13 +18,12 @@ export const Filters = () => {
   }, [dispatch, makes]);
 
   const prices = calculatePrices();
-  console.log(prices);
 
   return (
     <FiltersDiv>
       <FilterDiv>
         <Label htmlFor="brand">Car brand</Label>
-        <Select id="brand">
+        <Select id="brand" onChange={handleMakeChange} value={selectedMake}>
           <option value="">Choose a car</option>
           {makes &&
             makes.map((make, index) => (

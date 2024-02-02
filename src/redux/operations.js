@@ -5,10 +5,10 @@ axios.defaults.baseURL = 'https://65b95d65b71048505a8abdeb.mockapi.io/api/v1';
 
 export const getAllCars = createAsyncThunk(
   'cars/getAllCars',
-  async (_, { rejectWithValue }) => {
+  async ({ page, make }, { rejectWithValue }) => {
     try {
       const { data } = await axios.get('/advert', {
-        params: { page: 1, limit: 12 },
+        params: { page: page, limit: 12, make: make.toLowerCase() },
       });
       return data;
     } catch (error) {
