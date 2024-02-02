@@ -8,8 +8,8 @@ import { FilterDiv, FiltersDiv, Label, Select } from './styles/Filters.styled';
 export const Filters = ({ handleMakeChange }) => {
   const dispatch = useDispatch();
   const makes = useSelector(makesSelector);
-
-  const selectedMake = useState('');
+  // eslint-disable-next-line
+  const [selectedMake, setSelectedMake] = useState('');
 
   useMemo(() => {
     if (!makes) {

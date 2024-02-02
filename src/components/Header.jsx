@@ -1,13 +1,13 @@
-import { NavLink } from 'react-router-dom';
+import { HeaderStyled, NavLinkStyled, NavStyled } from './styles/Header.styled';
 
 export const Header = () => {
   return (
-    <header>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/catalog">Catalog</NavLink>
-        <NavLink to="/favorites">Favorites</NavLink>
-      </nav>
-    </header>
+    <HeaderStyled>
+      <NavStyled>
+        <NavLinkStyled to="/">Home</NavLinkStyled>
+        <NavLinkStyled to="/catalog">Catalog</NavLinkStyled>
+        <NavLinkStyled to="/favorites">Favorites</NavLinkStyled>
+      </NavStyled>
+    </HeaderStyled>
   );
 };

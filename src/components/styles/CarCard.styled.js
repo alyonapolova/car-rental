@@ -62,9 +62,6 @@ export const BtnHeart = styled.button`
   &:focus {
     color: red;
   }
-  &:active {
-    color: red;
-  }
 `;
 
 export const InfoDiv = styled.div`

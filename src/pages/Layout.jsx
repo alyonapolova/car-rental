@@ -4,9 +4,11 @@ import { Header } from '../components/Header';
 
 export default function Layout() {
   return (
-    <Section>
+    <>
       <Header />
-      <Outlet />
-    </Section>
+      <Section>
+        <Outlet />
+      </Section>
+    </>
   );
 }
