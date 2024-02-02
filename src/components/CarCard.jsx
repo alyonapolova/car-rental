@@ -37,7 +37,6 @@ export const CarCard = ({ car }) => {
     setIsFav(!isFav);
   };
 
-  console.log(car);
   return (
     <CardLi>
       <ImgDiv>

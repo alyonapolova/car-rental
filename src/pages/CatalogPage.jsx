@@ -3,7 +3,7 @@ import { getAllCars } from '../redux/operations';
 import { Catalog } from '../components/Catalog';
 import { useCallback, useEffect, useRef } from 'react';
 import { carsSelector } from '../redux/selectors';
-import { Filters } from 'components/Filters';
+import { Filters } from '../components/Filters';
 
 export default function CatalogPage() {
   const dispatch = useDispatch();

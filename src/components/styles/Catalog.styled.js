@@ -19,4 +19,11 @@ export const LoadMoreBtn = styled.button`
   font-size: 20px;
   border: none;
   margin-top: 80px;
+
+  &:hover {
+    color: #0b44cd;
+  }
+  &:focus {
+    color: #0b44cd;
+  }
 `;

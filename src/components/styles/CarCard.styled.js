@@ -47,21 +47,13 @@ export const ImgStyle = styled.img`
 
 export const BtnHeart = styled.button`
   font-size: 40px;
-  color: ${props => (props.isFav ? 'red' : 'white')};
-  // color: #3470ff;
+  color: ${props => (props.isFav ? '#3470ff' : 'white')};
   position: absolute;
   top: 5px;
   right: 5px;
   background-color: transparent;
   border: none;
   cursor: pointer;
-
-  &:hover {
-    color: red;
-  }
-  &:focus {
-    color: red;
-  }
 `;
 
 export const InfoDiv = styled.div`
@@ -86,6 +78,12 @@ export const BtnLearnMore = styled.button`
   border: none;
   width: inherit;
   border-radius: 12px;
-
   padding: 12px 99px;
+
+  &:hover {
+    background-color: #0b44cd;
+  }
+  &:focus {
+    background-color: #0b44cd;
+  }
 `;
