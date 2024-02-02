@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { favoritesSelector } from '../redux/selectors';
+import { favSelector } from '../redux/selectors';
 import { CarCard } from './CarCard';
 
 export const Favorites = () => {
-  const favorites = useSelector(favoritesSelector);
+  const favorites = useSelector(favSelector);
   console.log(favorites);
   return (
     <div>

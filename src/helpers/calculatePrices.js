@@ -1,7 +1,7 @@
-export const calculatePrices = data => {
-  if (!data) return;
-
-  return data
-    .map(car => parseFloat(car.rentalPrice.replace('$', '')))
-    .sort((a, b) => a - b);
-};
+export default function calculatePrices() {
+  let prices = [];
+  for (let i = 10; i <= 200; i += 10) {
+    prices.push(i);
+  }
+  return prices;
+}

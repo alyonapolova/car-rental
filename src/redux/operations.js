@@ -1,14 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://65b95d65b71048505a8abdeb.mockapi.io/api/v1/';
+axios.defaults.baseURL = 'https://65b95d65b71048505a8abdeb.mockapi.io/api/v1';
 
 export const getAllCars = createAsyncThunk(
-  'cars/getAll',
-  async ({ page }, { rejectWithValue }) => {
+  'cars/getAllCars',
+  async (_, { rejectWithValue }) => {
     try {
-      const params = { page: page, limit: 12 };
-      const { data } = await axios.get('/advert', { params });
+      const { data } = await axios.get('/advert', {
+        params: { page: 1, limit: 12 },
+      });
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

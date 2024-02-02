@@ -1,5 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { favoritesReducer } from './favoritesSlice';
+import { configureStore } from '@reduxjs/toolkit';
 import { filtersReducer } from './filtersSlice';
 import { carsReducer } from './slice';
 import storage from 'redux-persist/lib/storage';
@@ -13,23 +12,15 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-const persistConfig1 = {
+const persistConfig = {
   key: 'root',
   storage,
 };
-const persistConfig2 = {
-  key: 'fav',
-  storage,
-};
 
-const reducer = combineReducers({
-  cars: persistReducer(persistConfig1, carsReducer),
-  favorites: persistReducer(persistConfig2, favoritesReducer),
-  filters: filtersReducer,
-});
+const persistedReducer = persistReducer(persistConfig, carsReducer);
 
 export const store = configureStore({
-  reducer: reducer,
+  reducer: { cars: persistedReducer, filter: filtersReducer },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

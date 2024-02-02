@@ -3,19 +3,26 @@ import { getAllCars } from './operations';
 
 const initialState = {
   cars: null,
-  currentPage: null,
   isLoading: false,
   error: null,
+  favList: [],
 };
 
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-    setCurrentPage: (state, action) => {
-      state.currentPage = action.payload;
-    },
+  addToFavorites: (state, action) => {
+    const carInList = state.favList.find(car => car.id === action.payload.id);
+    if (!carInList) {
+      state.favList.push(action.payload);
+    }
   },
+  removeFromFavorites: (state, action) => {
+    state.favList = state.list.filter(item => item.id !== action.payload.id);
+  },
+
+},
   extraReducers: builder => {
     builder
       .addCase(getAllCars.pending, state => {
@@ -32,5 +39,5 @@ const carsSlice = createSlice({
   },
 });
 
-export const { setCurrentPage } = carsSlice.actions;
+export const { addToFavorites, removeFromFavorites } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;
