@@ -26,8 +26,8 @@ export default function CatalogPage() {
     [dispatch, makeRef]
   );
 
-  const loadMoreCars = async () => {
-    await setPage(page + 1);
+  const loadMoreCars = () => {
+    setPage(page + 1);
     dispatch(getAllCars({ page: page + 1, make: makeRef.current }));
   };
 
