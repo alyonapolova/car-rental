@@ -27,7 +27,7 @@ export default function CatalogPage() {
   );
 
   const loadMoreCars = () => {
-    setPage(page + 1);
+    setPage(prevPage => prevPage + 1);
     dispatch(getAllCars({ page: page + 1, make: makeRef.current }));
   };
 

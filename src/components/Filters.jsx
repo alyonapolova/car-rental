@@ -17,13 +17,19 @@ export const Filters = ({ handleMakeChange }) => {
     }
   }, [dispatch, makes]);
 
+  const handleSelectChange = event => {
+    const selectedValue = event.target.value;
+    setSelectedMake(selectedValue);
+    handleMakeChange(event);
+  };
+
   const prices = calculatePrices();
 
   return (
     <FiltersDiv>
       <FilterDiv>
         <Label htmlFor="brand">Car brand</Label>
-        <Select id="brand" onChange={handleMakeChange} value={selectedMake}>
+        <Select id="brand" onChange={handleSelectChange} value={selectedMake}>
           <option value="">Choose a car</option>
           {makes &&
             makes.map((make, index) => (
