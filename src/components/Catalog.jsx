@@ -1,4 +1,5 @@
 import { CarCard } from './CarCard';
+// eslint-disable-next-line
 import { CatalogDiv, CatalogUl, LoadMoreBtn } from './styles/Catalog.styled';
 
 export const Catalog = ({ cars, loadMoreCars }) => {
