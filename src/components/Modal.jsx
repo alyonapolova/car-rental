@@ -1,10 +1,18 @@
-export const Modal = ({ isShown, closeModal, cardInfo }) => {
-  if (!isShown) return null;
+import { useSelector } from 'react-redux';
+import { carSelector } from '../redux/selectors';
+import { Backdrop, ModalStyled } from './styles/Modal.styled';
 
+export const Modal = ({ isModal, onClose }) => {
+  const cardInfo = useSelector(carSelector);
+
+  if (!isModal) return null;
+  console.log(isModal);
   return (
-    <div className="modal-overlay">
-      <div className="modal">
-        <button onClick={closeModal}>&#9421;</button>
+    <Backdrop isModal={isModal}>
+      <ModalStyled isModal={isModal}>
+        <button type="button" onClick={() => onClose()}>
+          &#9421;
+        </button>
         <img src={cardInfo.img} alt={cardInfo.model} />
         <p>
           {cardInfo.make} {cardInfo.model},{cardInfo.year}
@@ -22,7 +30,7 @@ export const Modal = ({ isShown, closeModal, cardInfo }) => {
         <h2>Rental Conditions: </h2>
         <p>{cardInfo.rentalConditions}</p>
         <p>{cardInfo.mileage}</p>
-      </div>
-    </div>
+      </ModalStyled>
+    </Backdrop>
   );
 };

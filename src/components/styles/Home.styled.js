@@ -9,6 +9,3 @@ export const HomeDiv = styled.div`
   background-position: center;
   background-repeat: no-repeat;
 `;
-
-// border: 1px solid grey;
-// height: 70px;

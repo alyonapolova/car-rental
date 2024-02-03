@@ -17,6 +17,18 @@ export const getAllCars = createAsyncThunk(
   }
 );
 
+export const getCarById = createAsyncThunk(
+  'cars/getCarById',
+  async ({ id }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(`/advert/${id}`);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const getMakes = createAsyncThunk(
   'cars/getMakes',
   async (_, { rejectWithValue }) => {
