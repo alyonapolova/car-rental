@@ -47,7 +47,7 @@ export const ImgStyle = styled.img`
 
 export const BtnHeart = styled.button`
   font-size: 40px;
-  color: ${props => (props.isFav ? '#3470ff' : 'white')};
+  color: ${props => (props.isfav ? '#3470ff' : 'white')};
   position: absolute;
   top: 5px;
   right: 5px;

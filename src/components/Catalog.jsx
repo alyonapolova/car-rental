@@ -2,14 +2,13 @@ import { CarCard } from './CarCard';
 import { CatalogDiv, CatalogUl, LoadMoreBtn } from './styles/Catalog.styled';
 
 export const Catalog = ({ cars, loadMoreCars }) => {
-  console.log(cars);
   return (
     <CatalogDiv>
       <CatalogUl>
         {cars && cars.map(car => <CarCard key={car.id} car={car} />)}
       </CatalogUl>
       {cars.length === 12 && (
-        <LoadMoreBtn type="button" onClick={loadMoreCars}>
+        <LoadMoreBtn type="button" onClick={() => loadMoreCars()}>
           Load More
         </LoadMoreBtn>
       )}

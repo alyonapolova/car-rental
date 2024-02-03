@@ -6,7 +6,7 @@ import { FavoritesUl } from './styles/Favorites.styled';
 
 export const Favorites = () => {
   const favorites = useSelector(favSelector);
-  console.log(favorites);
+
   return (
     <CatalogDiv>
       <h1>Favorites</h1>

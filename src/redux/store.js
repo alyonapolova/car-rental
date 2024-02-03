@@ -20,7 +20,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, carsReducer);
 
 export const store = configureStore({
-  reducer: { cars: persistedReducer, filter: filtersReducer },
+  reducer: { cars: persistedReducer, filters: filtersReducer },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

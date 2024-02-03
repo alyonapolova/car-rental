@@ -41,7 +41,7 @@ export const CarCard = ({ car }) => {
     <CardLi>
       <ImgDiv>
         <ImgStyle src={car.img} alt={car.model} />
-        <BtnHeart type="button" onClick={handleBtnFavorites} isFav={isFav}>
+        <BtnHeart type="button" onClick={handleBtnFavorites} isfav={isFav}>
           &#9829;
         </BtnHeart>
       </ImgDiv>

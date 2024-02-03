@@ -8,7 +8,7 @@ export const getAllCars = createAsyncThunk(
   async ({ page, make }, { rejectWithValue }) => {
     try {
       const { data } = await axios.get('/advert', {
-        params: { page: page, limit: 12, make: make.toLowerCase() },
+        params: { page: page, limit: 12, make: make },
       });
       return data;
     } catch (error) {
