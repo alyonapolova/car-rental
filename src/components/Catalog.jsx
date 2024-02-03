@@ -8,11 +8,11 @@ export const Catalog = ({ cars, loadMoreCars }) => {
       <CatalogUl>
         {cars && cars.map(car => <CarCard key={car.id} car={car} />)}
       </CatalogUl>
-      {/* {cars.length === 12 && (
+      {cars && cars.length === 12 && (
         <LoadMoreBtn type="button" onClick={() => loadMoreCars()}>
           Load More
         </LoadMoreBtn>
-      )} */}
+      )}
     </CatalogDiv>
   );
 };
