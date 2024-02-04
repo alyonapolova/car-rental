@@ -33,6 +33,7 @@ export const Modal = ({ cardInfo, isModal, onClose }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
+    // eslint-disable-next-line
   }, [isModal]);
 
   if (!isModal || !cardInfo) return null;
