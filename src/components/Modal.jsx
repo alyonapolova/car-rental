@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
-import { carSelector } from '../redux/selectors';
+// import { useSelector } from 'react-redux';
+// import { carSelector } from '../redux/selectors';
 import {
   Accessories,
   AccessoriesList,
@@ -19,8 +19,8 @@ import {
   TitleDiv,
 } from './styles/Modal.styled';
 
-export const Modal = ({ isModal, onClose }) => {
-  const cardInfo = useSelector(carSelector);
+export const Modal = ({ cardInfo, isModal, onClose }) => {
+  // const cardInfo = useSelector(carSelector);
 
   // const handleKeyDown = event => {
   //   if (event.key === 'Escape') {
@@ -28,7 +28,9 @@ export const Modal = ({ isModal, onClose }) => {
   //   }
   // };
 
-  if (!isModal) return null;
+  if (!isModal || !cardInfo) return null;
+
+  console.log(cardInfo);
 
   return (
     <Backdrop isModal={isModal} onClick={onClose}>

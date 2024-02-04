@@ -1,6 +1,6 @@
+import { getCarById } from 'api/getCarById';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCarById } from '../redux/operations';
 import { favSelector } from '../redux/selectors';
 import { addToFavorites, removeFromFavorites } from '../redux/slice';
 import { Modal } from './Modal';
@@ -24,6 +24,8 @@ export const CarCard = ({ car }) => {
   const favorites = useSelector(favSelector);
   const [isModal, setIsModal] = useState(false);
 
+  const [cardInfo, setCardInfo] = useState(null);
+
   useEffect(() => {
     const isCarInFavorites = favorites.some(
       favoriteCar => favoriteCar.id === car.id
@@ -40,9 +42,15 @@ export const CarCard = ({ car }) => {
     setIsFav(!isFav);
   };
 
-  const getCarInfo = id => {
-    dispatch(getCarById({ id: id }));
-    setIsModal(true);
+  const getCarInfo = async id => {
+    try {
+      const data = await getCarById({ id: id });
+
+      setCardInfo(data);
+      setIsModal(true);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const onClose = () => {
@@ -81,7 +89,7 @@ export const CarCard = ({ car }) => {
       >
         Learn more
       </BtnLearnMore>
-      <Modal isModal={isModal} onClose={onClose} />
+      <Modal cardInfo={cardInfo} isModal={isModal} onClose={onClose} />
     </CardLi>
   );
 };
