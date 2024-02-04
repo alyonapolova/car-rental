@@ -7,9 +7,9 @@ This project was created with
 and settings of additional features
 [refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Getting Started:
+## Project Structure:
 
-The app includes a catalog page and a favorite cars page.
+The app includes a home page, a catalog page and a favorite cars page.
 - Сatalog: You can view our directory of vehicles available for rent. Our range ranges from compact cars to luxury SUVs, ensuring that there is something to suit all needs and preferences.
 - Favorites: on this page you can see previously saved cars.
 ## Technologies
