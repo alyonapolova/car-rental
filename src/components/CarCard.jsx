@@ -78,7 +78,7 @@ export const CarCard = ({ car }) => {
 
         <TextStyle>{car.type}</TextStyle>
 
-        <TextStyle>{car.mileage}</TextStyle>
+        <TextStyle>{car.mileage.toLocaleString('en-US')}</TextStyle>
         <TextStyle>{car.accessories[0]}</TextStyle>
       </InfoDiv>
       <BtnLearnMore
