@@ -5,6 +5,14 @@ export const CatalogUl = styled.ul`
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
   justify-content: space-between;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 1375px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 `;
 
 export const CatalogDiv = styled.div`

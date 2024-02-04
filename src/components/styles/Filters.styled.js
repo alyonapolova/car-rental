@@ -6,6 +6,11 @@ export const FiltersDiv = styled.div`
   gap: 18px;
   margin-bottom: 50px;
   margin-top: 50px;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const FilterDiv = styled.div`

@@ -11,12 +11,7 @@ export const Favorites = () => {
     <CatalogDiv>
       <h1>Favorites</h1>
       <FavoritesUl>
-        {favorites &&
-          favorites.map(car => (
-            <li key={car.id}>
-              <CarCard car={car} />
-            </li>
-          ))}
+        {favorites && favorites.map(car => <CarCard key={car.id} car={car} />)}
       </FavoritesUl>
     </CatalogDiv>
   );

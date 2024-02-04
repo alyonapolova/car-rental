@@ -38,6 +38,10 @@ export const ModalStyled = styled.div`
   opacity: ${props => (props.isModal ? 1 : 0)};
   visibility: ${props => (props.isModal ? 'visible' : 'hidden')};
   pointer-events: ${props => (props.isModal ? 'auto' : 'none')};
+
+  @media screen and (max-width: 767px) {
+    width: 241px;
+  }
 `;
 
 export const ModalImg = styled.img`
