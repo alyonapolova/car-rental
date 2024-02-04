@@ -5,11 +5,11 @@ import { getMakes } from '../redux/operations';
 import { makesSelector } from '../redux/selectors';
 import { FilterDiv, FiltersDiv, Label, Select } from './styles/Filters.styled';
 
-export const Filters = ({ handleMakeChange }) => {
+export const Filters = ({ handleMakeChange, handlePriceChange }) => {
   const dispatch = useDispatch();
   const makes = useSelector(makesSelector);
-  // eslint-disable-next-line
   const [selectedMake, setSelectedMake] = useState('');
+  const [selectedPrice, setSelectedPrice] = useState('');
 
   useMemo(() => {
     if (!makes) {
@@ -21,6 +21,12 @@ export const Filters = ({ handleMakeChange }) => {
     const selectedValue = event.target.value;
     setSelectedMake(selectedValue);
     handleMakeChange(event);
+  };
+
+  const handleSelectorPriceChange = event => {
+    const selectedPrice = event.target.value;
+    setSelectedPrice(selectedPrice);
+    handlePriceChange(event);
   };
 
   const prices = calculatePrices();
@@ -41,11 +47,15 @@ export const Filters = ({ handleMakeChange }) => {
       </FilterDiv>
       <FilterDiv>
         <Label htmlFor="price">Price / 1 hour</Label>
-        <Select id="price">
+        <Select
+          id="price"
+          onChange={handleSelectorPriceChange}
+          value={selectedPrice}
+        >
           <option value="">To $</option>
           {prices &&
             prices.map((price, index) => (
-              <option key={index} value="price">
+              <option key={index} value={price}>
                 {price}
               </option>
             ))}
