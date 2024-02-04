@@ -21,5 +21,11 @@ The app includes a catalog page and a favorite cars page.
 ## Useful Links
 
 - [Figma layout](https://www.figma.com/file/XhC8FSCfAkraEF5l7Hx4fL/Test?type=design&node-id=0-1&mode=design)
-  :the layout on which the application was created;
-- [mockAPI](https://mockapi.io/projects) :API Modeling Tool;
+  :This link directs you to the Figma layout, which serves as the visual design
+  framework for the application. You can view the user interface elements,
+  layout structure, and design components used in the application.
+- [mockAPI](https://mockapi.io/projects) :This link leads to the mockAPI
+  platform, which is an API modeling tool utilized in the development of the
+  application. mockAPI enables the simulation of backend data responses,
+  facilitating the testing and development process by providing a simulated
+  backend environment.
