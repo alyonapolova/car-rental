@@ -24,7 +24,10 @@ export const getAllCars = createAsyncThunk(
       return data;
     } catch (error) {
       Notiflix.Notify.info(
-        "Sorry, we don't have any cars matching your request :("
+        "Sorry, we don't have any cars matching your request :(",
+        {
+          position: 'center-center',
+        }
       );
       return rejectWithValue(error.message);
     }
