@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://65b95d65b71048505a8abdeb.mockapi.io/api/v1';
 
@@ -22,6 +23,9 @@ export const getAllCars = createAsyncThunk(
       const { data } = await axios.get('/advert', { params });
       return data;
     } catch (error) {
+      Notiflix.Notify.info(
+        "Sorry, we don't have any cars matching your request :("
+      );
       return rejectWithValue(error.message);
     }
   }
