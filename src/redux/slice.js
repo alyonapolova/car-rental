@@ -32,6 +32,11 @@ const carsSlice = createSlice({
         state.favList.splice(indexToRemove, 1);
       }
     },
+    filterFav: (state, action) => {
+      state.favList = state.favList.filter(
+        car => car.address !== action.payload
+      );
+    },
   },
   extraReducers: builder => {
     builder
@@ -56,6 +61,6 @@ const carsSlice = createSlice({
   },
 });
 
-export const { setPage, addToFavorites, removeFromFavorites } =
+export const { setPage, addToFavorites, removeFromFavorites, filterFav } =
   carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

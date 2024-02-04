@@ -32,7 +32,6 @@ export const Select = styled.select`
   background-color: #f7f7fb;
 `;
 
-// Стилизуем опции
 export const Option = styled.option`
-  font-size: 16px; /* Размер шрифта */
+  font-size: 16px;
 `;

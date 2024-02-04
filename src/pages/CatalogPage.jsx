@@ -11,6 +11,7 @@ export default function CatalogPage() {
   const dispatch = useDispatch();
   const cars = useSelector(carsSelector);
   const makeRef = useRef('');
+  const priceRef = useRef('');
   const page = useSelector(pageSelector);
   const limit = useSelector(limitSelector);
 
