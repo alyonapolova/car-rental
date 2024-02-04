@@ -1,40 +1,43 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCars } from '../redux/operations';
+import { getAllCars, getCars } from '../redux/operations';
 import { Catalog } from '../components/Catalog';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { carsSelector } from '../redux/selectors';
+import { useCallback, useEffect, useRef } from 'react';
+import { carsSelector, limitSelector, pageSelector } from '../redux/selectors';
 import { Filters } from '../components/Filters';
+import { setPage } from '../redux/slice';
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
   const cars = useSelector(carsSelector);
-  // const pageRef = useRef(1);
-  const [page, setPage] = useState(1);
   const makeRef = useRef('');
-
-  console.log(cars);
+  const page = useSelector(pageSelector);
+  const limit = useSelector(limitSelector);
 
   useEffect(() => {
-    dispatch(getAllCars({ page: 1, make: makeRef.current }));
-  }, [dispatch, makeRef]);
+    dispatch(setPage(1));
+    dispatch(getCars());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllCars({ page, limit, make: makeRef.current }));
+  }, [dispatch, page, limit]);
 
   const handleMakeChange = useCallback(
     event => {
       makeRef.current = event.target.value;
-      dispatch(getAllCars({ page: 1, make: makeRef.current }));
+      dispatch(setPage(1));
+      dispatch(getAllCars({ page, make: makeRef.current }));
     },
-    [dispatch, makeRef]
+    [dispatch, makeRef, page]
   );
-
-  const loadMoreCars = () => {
-    setPage(prevPage => prevPage + 1);
-    dispatch(getAllCars({ page: page + 1, make: makeRef.current }));
+  const handleLoadMore = () => {
+    dispatch(setPage(page + 1));
   };
 
   return (
     <div>
       <Filters handleMakeChange={handleMakeChange} />
-      <Catalog cars={cars} loadMoreCars={loadMoreCars} />
+      <Catalog cars={cars} handleLoadMore={handleLoadMore} />
     </div>
   );
 }

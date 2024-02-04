@@ -30,7 +30,7 @@ export const Modal = ({ cardInfo, isModal, onClose }) => {
 
   if (!isModal || !cardInfo) return null;
 
-  console.log(cardInfo);
+
 
   return (
     <Backdrop isModal={isModal} onClick={onClose}>

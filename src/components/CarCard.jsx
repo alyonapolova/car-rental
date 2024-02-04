@@ -45,7 +45,6 @@ export const CarCard = ({ car }) => {
   const getCarInfo = async id => {
     try {
       const data = await getCarById({ id: id });
-
       setCardInfo(data);
       setIsModal(true);
     } catch (error) {

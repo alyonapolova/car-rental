@@ -3,13 +3,11 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://65b95d65b71048505a8abdeb.mockapi.io/api/v1';
 
-export const getAllCars = createAsyncThunk(
-  'cars/getAllCars',
-  async ({ page, make }, { rejectWithValue }) => {
+export const getCars = createAsyncThunk(
+  'cars/getCars',
+  async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get('/advert', {
-        params: { page: page, limit: 12, make: make },
-      });
+      const { data } = await axios.get('/advert');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -17,6 +15,17 @@ export const getAllCars = createAsyncThunk(
   }
 );
 
+export const getAllCars = createAsyncThunk(
+  'cars/getAllCars',
+  async (params, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get('/advert', { params });
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const getMakes = createAsyncThunk(
   'cars/getMakes',
