@@ -1,5 +1,7 @@
 #  Car Rental Service
 
+![Web-site main page](./assets/main.png)
+
 This project was created with
 [Create React App](https://github.com/facebook/create-react-app). For acquaintance
 and settings of additional features
