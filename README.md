@@ -7,7 +7,7 @@ This project was created with
 acquaintance and settings of additional features
 [refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Getting Started:
+## Project Structure:
 
 The app includes a catalog page and a favorite cars page.
 
