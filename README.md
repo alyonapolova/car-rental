@@ -1,15 +1,19 @@
-# React homework template
+#  Car Rental Service
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
+This project was created with
+[Create React App](https://github.com/facebook/create-react-app). For acquaintance
+and settings of additional features
+[refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Создание репозитория по шаблону
+## Getting Started:
 
-Используй этот репозиторий организации GoIT как шаблон для создания репозитория
-своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
-`«Create a new repository»`, как показано на изображении.
+The app includes a catalog page and a favorite cars page.
+- Сatalog: You can view our directory of vehicles available for rent. Our range ranges from compact cars to luxury SUVs, ensuring that there is something to suit all needs and preferences.
+- Favorites: on this page you can see previously saved cars.
+## Technologies
+
+## Useful Links
+
 
 ![Creating repo from a template step 1](./assets/template-step-1.png)
 
