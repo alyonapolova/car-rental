@@ -41,3 +41,8 @@ export const BtnAddress = styled.button`
     background-color: #0b44cd;
   }
 `;
+
+
+export const FavH1 = styled.h1`
+text-align:center;
+margin-top:24px`

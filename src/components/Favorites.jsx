@@ -3,7 +3,12 @@ import { filterFav } from '../redux/slice';
 import { favSelector } from '../redux/selectors';
 import { CarCard } from './CarCard';
 import { CatalogDiv } from './styles/Catalog.styled';
-import { BtnAddress, BtnDiv, FavoritesUl } from './styles/Favorites.styled';
+import {
+  BtnAddress,
+  BtnDiv,
+  FavH1,
+  FavoritesUl,
+} from './styles/Favorites.styled';
 
 export const Favorites = () => {
   const favorites = useSelector(favSelector);
@@ -15,6 +20,9 @@ export const Favorites = () => {
 
   return (
     <CatalogDiv>
+      {favorites.length === 0 && (
+        <FavH1>You still haven't added favorite cars.</FavH1>
+      )}
       <BtnDiv>
         {favorites &&
           favorites
