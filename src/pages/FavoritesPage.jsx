@@ -1,5 +1,10 @@
-import { Favorites } from 'components/Favorites';
+import { Section } from 'components/styles/Container.styled';
+import { Favorites } from '../components/Favorites';
 
 export default function FavoritesPage() {
-  return <Favorites />;
+  return (
+    <Section>
+      <Favorites />
+    </Section>
+  );
 }

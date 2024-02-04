@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { carsSelector, limitSelector, pageSelector } from '../redux/selectors';
 import { Filters } from '../components/Filters';
 import { setPage } from '../redux/slice';
+import { Section } from 'components/styles/Container.styled';
 
 export default function CatalogPage() {
   const dispatch = useDispatch();
@@ -35,9 +36,9 @@ export default function CatalogPage() {
   };
 
   return (
-    <div>
+    <Section>
       <Filters handleMakeChange={handleMakeChange} />
       <Catalog cars={cars} handleLoadMore={handleLoadMore} />
-    </div>
+    </Section>
   );
 }
