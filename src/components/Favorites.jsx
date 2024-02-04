@@ -26,7 +26,6 @@ export const Favorites = () => {
               <BtnAddress
                 type="button"
                 onClick={() => {
-                  console.log(car.address);
                   handleFilterClick(car.address);
                 }}
                 key={car.id}
